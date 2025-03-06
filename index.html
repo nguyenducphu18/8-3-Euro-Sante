@@ -17,7 +17,7 @@
     }
     
     .container {
-      max-width: 700px;
+      max-width: 600px;
       padding: 20px;
       text-align: center;
     }
@@ -28,37 +28,37 @@
     
     h1 {
       color: #db2777;
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
     
     h2 {
       color: #9333ea;
-      font-size: 26px;
+      font-size: 20px;
       margin-top: 0;
     }
     
     .card {
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 24px;
       margin-bottom: 20px;
     }
     
     .person-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     
     .person-button {
       background-color: #fdf2f8;
       border: none;
       border-radius: 6px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       text-align: left;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       transition: background-color 0.2s;
       display: flex;
@@ -73,82 +73,58 @@
     
     .wish-title {
       color: #db2777;
-      font-size: 34px;
-      margin-bottom: 30px;
-    }
-    
-    .person-name {
-      font-weight: bold;
-      font-size: 42px;
-      color: #9333ea;
-      display: block;
-      margin: 15px 0;
+      font-size: 24px;
+      margin-bottom: 20px;
     }
     
     .wish-text {
       color: #4b5563;
-      line-height: 1.7;
-      margin-bottom: 30px;
-      font-size: 22px;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
     
-    .flower-container {
+    .back-button {
+      background-color: #9333ea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s;
       text-decoration: none;
       display: inline-block;
-      cursor: pointer;
-      position: relative;
-      margin: 40px 0;
-      width: 300px;
-      height: 300px;
+    }
+    
+    .back-button:hover {
+      background-color: #7e22ce;
+    }
+    
+    .flower-button {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: transform 0.3s;
+    }
+    
+    .flower-button:hover {
+      transform: scale(1.1);
     }
     
     .flower {
-      font-size: 250px;
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(45deg, #ff0000, #ff3333, #cc0000, #990000);
-      background-size: 300% 300%;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      animation: shimmer 3s ease infinite;
-      text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform-origin: center;
-      animation: shimmer 3s ease infinite, pulse 2s infinite alternate;
+      font-size: 48px;
+      display: block;
+      margin-bottom: 5px;
     }
     
-    .sparkle {
-      position: absolute;
-      font-size: 24px;
-      animation: twinkle 2s infinite;
-      z-index: 0;
-      color: #ff0000;
-    }
-    
-    @keyframes shimmer {
-      0% { background-position: 0% 50% }
-      50% { background-position: 100% 50% }
-      100% { background-position: 0% 50% }
-    }
-    
-    @keyframes twinkle {
-      0% { opacity: 0; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1.2); }
-      100% { opacity: 0; transform: scale(0.8); }
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
+    .flower-text {
+      color: #db2777;
+      font-size: 14px;
     }
     
     .footer {
       margin-top: 20px;
       color: #6b7280;
-      font-size: 18px;
     }
 
     .links-section {
@@ -158,15 +134,15 @@
 
     .copy-field {
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .copy-input {
       flex-grow: 1;
-      padding: 10px;
+      padding: 8px;
       border: 1px solid #d1d5db;
       border-radius: 6px 0 0 6px;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .copy-button {
@@ -174,17 +150,46 @@
       color: white;
       border: none;
       border-radius: 0 6px 6px 0;
-      padding: 10px 14px;
+      padding: 8px 12px;
       cursor: pointer;
     }
 
     .link-list {
-      margin-top: 20px;
+      margin-top: 16px;
     }
 
     .link-item {
-      margin-bottom: 10px;
-      font-size: 16px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .link-text {
+      margin-right: 8px;
+      flex-grow: 1;
+    }
+    
+    .notification {
+      background-color: #10b981;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+    
+    .error-message {
+      color: #ef4444;
+      margin-top: 16px;
+      padding: 12px;
+      background-color: #fef2f2;
+      border-radius: 6px;
+      display: none;
     }
   </style>
 </head>
@@ -196,7 +201,7 @@
     </div>
     
     <div id="home-page" class="card">
-      <h3 style="color: #9333ea; margin-top: 0; margin-bottom: 20px; font-size: 24px;">Chọn tên của bạn để nhận lời chúc:</h3>
+      <h3 style="color: #9333ea; margin-top: 0; margin-bottom: 16px;">Chọn tên của bạn để nhận lời chúc:</h3>
       <div class="person-list">
         <a href="?name=TranMo" class="person-button">🌷 Trần Mơ</a>
         <a href="?name=NguyenThuy" class="person-button">🌷 Nguyễn Thúy</a>
@@ -210,29 +215,35 @@
       </div>
 
       <div class="links-section">
-        <h3 style="color: #9333ea; margin-top: 30px; margin-bottom: 20px; font-size: 24px;">Đường link cá nhân:</h3>
-        <p style="font-size: 18px;">Sao chép và gửi link dưới đây cho từng người:</p>
+        <h3 style="color: #9333ea; margin-top: 24px; margin-bottom: 16px;">Đường link cá nhân:</h3>
+        <p>Sao chép và gửi link dưới đây cho từng người:</p>
         
-        <div class="link-list">
-          <div class="link-item">Trần Mơ: <code>trang-web-cua-ban.com?name=TranMo</code></div>
-          <div class="link-item">Nguyễn Thúy: <code>trang-web-cua-ban.com?name=NguyenThuy</code></div>
-          <div class="link-item">Nguyễn Ngọc: <code>trang-web-cua-ban.com?name=NguyenNgoc</code></div>
-          <div class="link-item">Thùy Linh: <code>trang-web-cua-ban.com?name=ThuyLinh</code></div>
-          <div class="link-item">Nhật Linh: <code>trang-web-cua-ban.com?name=NhatLinh</code></div>
-          <div class="link-item">Khánh Huyền: <code>trang-web-cua-ban.com?name=KhanhHuyen</code></div>
-          <div class="link-item">Khánh Ly: <code>trang-web-cua-ban.com?name=KhanhLy</code></div>
-          <div class="link-item">Thúy Hằng: <code>trang-web-cua-ban.com?name=ThuyHang</code></div>
-          <div class="link-item">Thùy Dung: <code>trang-web-cua-ban.com?name=ThuyDung</code></div>
+        <div class="link-list" id="link-list">
+          <!-- Links will be dynamically generated by JavaScript -->
         </div>
       </div>
     </div>
     
     <div id="wish-card" class="card" style="display: none;">
-      <div class="wish-title">Chúc mừng</div>
-      <span id="person-name" class="person-name"></span>
+      <div class="wish-title">Chúc mừng <span id="person-name"></span>! 💐</div>
       <div id="wish-text" class="wish-text"></div>
-      <a href="?" class="flower-container" id="flower-container">
-        <div class="flower">🌹</div>
+      
+      <!-- Thay thế nút thông thường bằng nút hoa -->
+      <a href="?" class="flower-button">
+        <span class="flower">🌹</span>
+        <span class="flower-text">Quay lại danh sách</span>
+      </a>
+    </div>
+    
+    <div id="error-card" class="card" style="display: none;">
+      <div class="error-message" style="display: block;">
+        Tên không hợp lệ hoặc không tồn tại. Vui lòng kiểm tra lại link hoặc chọn tên từ danh sách.
+      </div>
+      
+      <!-- Thay thế nút thông thường bằng nút hoa cho trang lỗi -->
+      <a href="?" class="flower-button">
+        <span class="flower">🌹</span>
+        <span class="flower-text">Quay lại danh sách</span>
       </a>
     </div>
     
@@ -240,27 +251,29 @@
       <p>❤️ Chúc các chị em luôn xinh đẹp, hạnh phúc và thành công! ❤️</p>
     </div>
   </div>
+  
+  <div id="notification" class="notification">Đã sao chép vào clipboard!</div>
 
   <script>
+    // Ánh xạ từ tham số URL sang tên đầy đủ
+    const nameMapping = {
+      'TranMo': 'Trần Mơ',
+      'NguyenThuy': 'Nguyễn Thúy',
+      'NguyenNgoc': 'Nguyễn Ngọc',
+      'ThuyLinh': 'Thùy Linh',
+      'NhatLinh': 'Nhật Linh',
+      'KhanhHuyen': 'Khánh Huyền',
+      'KhanhLy': 'Khánh Ly',
+      'ThuyHang': 'Thúy Hằng',
+      'ThuyDung': 'Thùy Dung'
+    };
+    
     // Lấy tên từ URL
     function getNameFromUrl() {
       const urlParams = new URLSearchParams(window.location.search);
       const nameParam = urlParams.get('name');
       
-      // Ánh xạ từ tham số URL sang tên đầy đủ
-      const nameMapping = {
-        'TranMo': 'Trần Mơ',
-        'NguyenThuy': 'Nguyễn Thúy',
-        'NguyenNgoc': 'Nguyễn Ngọc',
-        'ThuyLinh': 'Thùy Linh',
-        'NhatLinh': 'Nhật Linh',
-        'KhanhHuyen': 'Khánh Huyền',
-        'KhanhLy': 'Khánh Ly',
-        'ThuyHang': 'Thúy Hằng',
-        'ThuyDung': 'Thùy Dung'
-      };
-      
-      return nameParam ? nameMapping[nameParam] : null;
+      return nameParam && nameMapping[nameParam] ? nameMapping[nameParam] : null;
     }
     
     // Lời chúc cho từng người
@@ -276,56 +289,80 @@
       return wishes[wishIndex];
     }
     
-    // Thêm hiệu ứng lấp lánh xung quanh bông hoa
-    function addSparkles() {
-      const flowerContainer = document.getElementById('flower-container');
-      const sparkleChars = ['✨', '⭐', '🌟', '💫', '✦', '✧'];
-      const numSparkles = 20; // Thêm nhiều hiệu ứng lấp lánh hơn
+    // Hiển thị thông báo đã sao chép
+    function showNotification() {
+      const notification = document.getElementById('notification');
+      notification.style.display = 'block';
       
-      for (let i = 0; i < numSparkles; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
-        sparkle.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
+      // Ẩn thông báo sau 2 giây
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 2000);
+    }
+    
+    // Hàm sao chép link vào clipboard
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showNotification();
+      }).catch(err => {
+        console.error('Không thể sao chép: ', err);
+      });
+    }
+    
+    // Tạo danh sách links
+    function generateLinkList() {
+      const linkList = document.getElementById('link-list');
+      if (!linkList) return;
+      
+      // Lấy base URL từ trang hiện tại (loại bỏ query params nếu có)
+      const baseUrl = window.location.href.split('?')[0];
+      
+      // Tạo các mục link cho từng người
+      Object.entries(nameMapping).forEach(([key, value]) => {
+        const fullUrl = `${baseUrl}?name=${key}`;
         
-        // Vị trí ngẫu nhiên xung quanh bông hoa
-        const angle = Math.random() * Math.PI * 2;
-        const distance = 80 + Math.random() * 100; // Tăng phạm vi lấp lánh
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
+        const linkItem = document.createElement('div');
+        linkItem.className = 'link-item';
         
-        sparkle.style.left = `calc(50% + ${x}px)`;
-        sparkle.style.top = `calc(50% + ${y}px)`;
+        const linkText = document.createElement('div');
+        linkText.className = 'link-text';
+        linkText.textContent = `${value}: `;
         
-        // Delay hiệu ứng ngẫu nhiên
-        sparkle.style.animationDelay = `${Math.random() * 2}s`;
+        const linkCode = document.createElement('code');
+        linkCode.textContent = fullUrl;
+        linkText.appendChild(linkCode);
         
-        flowerContainer.appendChild(sparkle);
-      }
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-button';
+        copyButton.textContent = 'Copy';
+        copyButton.onclick = () => copyToClipboard(fullUrl);
+        
+        linkItem.appendChild(linkText);
+        linkItem.appendChild(copyButton);
+        linkList.appendChild(linkItem);
+      });
     }
     
     // Thiết lập trang khi tải
     window.onload = function() {
       const name = getNameFromUrl();
+      const urlParams = new URLSearchParams(window.location.search);
+      const nameParam = urlParams.get('name');
       
       if (name) {
-        // Hiển thị lời chúc nếu có tên trong URL
+        // Hiển thị lời chúc nếu có tên hợp lệ trong URL
         document.getElementById('home-page').style.display = 'none';
         document.getElementById('wish-card').style.display = 'block';
         document.getElementById('person-name').textContent = name;
         document.getElementById('wish-text').textContent = getRandomWish(name);
-        
-        // Thêm hiệu ứng lấp lánh
-        addSparkles();
+      } else if (nameParam) {
+        // Hiển thị lỗi nếu có tham số name nhưng không hợp lệ
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('error-card').style.display = 'block';
+      } else {
+        // Tạo danh sách links
+        generateLinkList();
       }
-      
-      // Thay thế tên miền trong danh sách link
-      const hostname = window.location.href.split('?')[0];
-      const linkItems = document.querySelectorAll('.link-item');
-      linkItems.forEach(item => {
-        const text = item.innerHTML;
-        item.innerHTML = text.replace('trang-web-cua-ban.com', hostname);
-      });
     };
   </script>
 </body>
-</html>

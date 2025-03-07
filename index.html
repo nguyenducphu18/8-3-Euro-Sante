@@ -150,6 +150,24 @@
     .hidden {
       display: none; /* Ẩn phần tử */
     }
+    
+    .person-image {
+      margin-bottom: 20px;
+    }
+    
+    .person-image img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #db2777;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .person-image img:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -193,6 +211,7 @@
     </div>
     
     <div id="wish-card" class="card hidden">
+      <div class="person-image" id="person-image"></div>
       <div class="wish-title">Chúc mừng <span id="person-name"></span>! 💐</div>
       <div id="wish-text" class="wish-text"></div>
 
@@ -240,6 +259,23 @@
       return nameParam ? nameMapping[nameParam] : null;
     }
     
+    // Mapping tên với đường dẫn ảnh
+    function getImagePath(nameParam) {
+      const imageMapping = {
+        'TranMo': 'images/tranmo.jpg',
+        'NguyenThuy': 'images/nguyenthuy.jpg',
+        'NguyenNgoc': 'images/nguyenngoc.jpg',
+        'ThuyLinh': 'images/thuylinh.jpg',
+        'NhatLinh': 'images/nhatlinh.jpg',
+        'KhanhHuyen': 'images/khanhhuyen.jpg',
+        'KhanhLy': 'images/khanhly.jpg',
+        'ThuyHang': 'images/thuyhang.jpg',
+        'ThuyDung': 'images/thuydung.jpg'
+      };
+      
+      return imageMapping[nameParam] || 'images/default.jpg'; // Trả về ảnh mặc định nếu không tìm thấy
+    }
+    
     // Lời chúc cho từng người
     function getRandomWish(name) {
       const wishes = [
@@ -255,7 +291,6 @@
         `Người yêu có thể chưa có, nhưng quà 8/3 nhất định phải có nhé! Chúc ${name} luôn vui vẻ và yêu đời!`,
         `Mừng ngày Quốc tế Phụ nữ, chúc ${name} có một ngày tràn đầy yêu thương, được nhận thật nhiều hoa, quà và những lời chúc ngọt ngào nhất! 🎁💐`,
         `Hôm nay là ngày đặc biệt của phái đẹp, chúc ${name} luôn xinh đẹp, duyên dáng, làm ít mà lương cao, đi làm mà như đi chơi! 😆🎉`
-
       ];
       
       const wishIndex = Math.floor(Math.random() * wishes.length);
@@ -266,6 +301,7 @@
     window.onload = function() {
       const urlParams = new URLSearchParams(window.location.search);
       const isAdmin = urlParams.get('admin') === 'true'; // Kiểm tra xem có phải là admin không
+      const nameParam = urlParams.get('name');
 
       // Hiển thị phần "Đường link cá nhân" nếu là admin
       if (isAdmin) {
@@ -280,6 +316,17 @@
         document.getElementById('wish-card').classList.remove('hidden');
         document.getElementById('person-name').textContent = name;
         document.getElementById('wish-text').textContent = getRandomWish(name);
+        
+        // Hiển thị ảnh của người đó
+        const imagePath = getImagePath(nameParam);
+        const imageElement = document.createElement('img');
+        imageElement.src = imagePath;
+        imageElement.alt = name;
+        document.getElementById('person-image').appendChild(imageElement);
+      } else if (nameParam) {
+        // Nếu có nameParam nhưng không có tên tương ứng, hiển thị trang lỗi
+        document.getElementById('home-page').classList.add('hidden');
+        document.getElementById('error-card').style.display = 'block';
       }
       
       // Thay thế tên miền trong danh sách link
